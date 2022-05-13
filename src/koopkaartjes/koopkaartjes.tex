@@ -1,0 +1,298 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6.5in, 10.5in}]{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{epsdice}
+
+% Definitie van de kleuren in hex rgb
+\definecolor{bruin}{HTML}{a6423d}
+\definecolor{lichtblauw}{HTML}{ade8fd}
+\definecolor{paars}{HTML}{bc2e82}
+\definecolor{oranje}{HTML}{eb9a0d}
+\definecolor{paars}{HTML}{bc2e82}
+\definecolor{rood}{HTML}{fe3325}
+\definecolor{geel}{HTML}{fff301}
+\definecolor{groen}{HTML}{00b55a}
+\definecolor{blauw}{HTML}{0082c6}
+\definecolor{magenta}{HTML}{e62272}
+
+% Definitie van de kaartjes (inclusief parameters)
+\newtcolorbox{kaartje}[2]{
+    adjusted title=#1,         % de titel (parameter)
+    halign title=center,       % centreer de titel
+    coltitle=black,            % maak de titel zwart
+    colbacktitle=#2,           % de kleur achter de titel (parameter)
+    fonttitle=\Large\bfseries, % maak de titel groot en dikgedrukt
+    fontupper=\Large\bfseries, % maak ook de prijs groot en dikgedrukt
+    fontlower=\scriptsize,     % lettergrootte
+    halign lower=center,       % centreer het deel onder de stippellijn
+    halign upper=center        % centreer het deel boven de stippellijn
+}
+
+% Definitie van de prijzenlijst (inclusief parameters)
+\newcommand{\prijzenlijst}[6]{
+    \begin{tabular}{ll}
+        Huur onbebouwd     & €#1 \\
+        Huur met 1 tent    & €#2 \\
+        Huur met 2 tenten  & €#3 \\
+        Huur met 3 tenten  & €#4 \\
+        Huur met 4 tenten  & €#5 \\
+        Huur met 1 BLOKHUT & €#6
+    \end{tabular}
+}
+
+% Definitie van de horizontale scheidingslijn
+\newcommand{\scheiding}{
+    \rule[0.5ex]{\linewidth}{1pt}
+}
+
+% Definitie van de toelichting onder de prijzenlijst
+\newcommand{\toelichting}{
+    \scheiding{}
+    Als een speler ALLE vakjes van \'e\'en kleurgroep bezit, wordt de huur
+    voor `onbebouwd' verdubbeld.
+    \scheiding{}
+}
+
+% Geen pagina nummering
+\pagestyle{empty}
+
+\begin{document}
+\begin{tcbraster}[raster columns=3, raster equal height, left=0mm, right=0mm,
+                    raster column skip=0mm,
+                    raster row skip=0mm,
+                    sharp corners]
+\begin{kaartje}{De hele Blokhut}{blauw}
+    €400
+    \tcblower{} % tekent een stippellijn en begint daaronder het 'lower' deel
+    \prijzenlijst{50}{200}{600}{1400}{1700}{2000}
+    \toelichting{}
+    {\small Hypotheekwaarde €200}
+\end{kaartje}
+\begin{kaartje}{WRV lokaal}{blauw}
+    €350
+    \tcblower{}
+    \prijzenlijst{35}{175}{500}{1100}{1300}{1500}
+    \toelichting{}
+    {\small Hypotheekwaarde €175}
+\end{kaartje}
+\begin{kaartje}{Leidinglokaal}{groen}
+    €320
+    \tcblower{}
+    \prijzenlijst{28}{150}{450}{1000}{1200}{1400}
+    \toelichting{}
+    {\small Hypotheekwaarde €160}
+\end{kaartje}
+\begin{kaartje}{De Keuken}{groen}
+    €300
+    \tcblower{}
+    \prijzenlijst{26}{130}{390}{900}{1100}{1275}
+    \toelichting{}
+    {\small Hypotheekwaarde €150}
+\end{kaartje}
+\begin{kaartje}{Grote Zaal}{groen}
+    €300
+    \tcblower{}
+    \prijzenlijst{26}{130}{390}{900}{1100}{1275}
+    \toelichting{}
+    {\small Hypotheekwaarde €150}
+\end{kaartje}
+\begin{kaartje}{Neushoorn lokaal}{geel}
+    €280
+    \tcblower{}
+    \prijzenlijst{24}{120}{360}{850}{1025}{1200}
+    \toelichting{}
+    {\small Hypotheekwaarde €140}
+\end{kaartje}
+\begin{kaartje}{Beren lokaal}{geel}
+    €260
+    \tcblower{}
+    \prijzenlijst{22}{110}{330}{800}{975}{1150}
+    \toelichting{}
+    {\small Hypotheekwaarde €130}
+\end{kaartje}
+\begin{kaartje}{Vlaggenmast}{geel}
+    €260
+    \tcblower{}
+    \prijzenlijst{22}{110}{330}{800}{975}{1150}
+    \toelichting{}
+    {\small Hypotheekwaarde €130}
+\end{kaartje}
+\begin{kaartje}{Kampvuurkuil}{rood}
+    €240
+    \tcblower{}
+    \prijzenlijst{20}{100}{300}{750}{925}{1100}
+    \toelichting{}
+    {\small Hypotheekwaarde €120}
+\end{kaartje}
+\begin{kaartje}{Slootjesbos}{rood}
+    €220
+    \tcblower{}
+    \prijzenlijst{18}{90}{250}{700}{875}{1050}
+    \toelichting{}
+    {\small Hypotheekwaarde €110}
+\end{kaartje}
+\begin{kaartje}{Schuine Boom}{rood}
+    €220
+    \tcblower{}
+    \prijzenlijst{18}{90}{250}{700}{875}{1050}
+    \toelichting{}
+    {\small Hypotheekwaarde €110}
+\end{kaartje}
+\begin{kaartje}{TRV lokaal}{oranje}
+    €200
+    \tcblower{}
+    \prijzenlijst{16}{80}{220}{600}{800}{1000}
+    \toelichting{}
+    {\small Hypotheekwaarde €100}
+\end{kaartje}
+\begin{kaartje}{BRV lokaal}{oranje}
+    €180
+    \tcblower{}
+    \prijzenlijst{14}{70}{200}{550}{750}{950}
+    \toelichting{}
+    {\small Hypotheekwaarde €90}
+\end{kaartje}
+\begin{kaartje}{Matcom}{oranje}
+    €180
+    \tcblower{}
+    \prijzenlijst{14}{70}{200}{550}{750}{950}
+    \toelichting{}
+    {\small Hypotheekwaarde €90}
+\end{kaartje}
+\begin{kaartje}{Berenkuil}{paars}
+    €160
+    \tcblower{}
+    \prijzenlijst{12}{60}{180}{500}{700}{900}
+    \toelichting{}
+    {\small Hypotheekwaarde €80}
+\end{kaartje}
+\begin{kaartje}{Tweede bankje}{paars}
+    €140
+    \tcblower{}
+    \prijzenlijst{10}{50}{150}{450}{625}{750}
+    \toelichting{}
+    {\small Hypotheekwaarde €70}
+\end{kaartje}
+\begin{kaartje}{Eerste bankje}{paars}
+    €140
+    \tcblower{}
+    \prijzenlijst{10}{50}{150}{450}{625}{750}
+    \toelichting{}
+    {\small Hypotheekwaarde €70}
+\end{kaartje}
+\begin{kaartje}{Oudstam lokaal}{lichtblauw}
+    €120
+    \tcblower{}
+    \prijzenlijst{8}{40}{100}{300}{450}{600}
+    \toelichting{}
+    {\small Hypotheekwaarde €60}
+\end{kaartje}
+\begin{kaartje}{CLAN lokaal}{lichtblauw}
+    €100
+    \tcblower{}
+    \prijzenlijst{6}{30}{90}{270}{400}{550}
+    \toelichting{}
+    {\small Hypotheekwaarde €50}
+\end{kaartje}
+\begin{kaartje}{RVV lokaal}{lichtblauw}
+    €100
+    \tcblower{}
+    \prijzenlijst{6}{30}{90}{270}{400}{550}
+    \toelichting{}
+    {\small Hypotheekwaarde €50}
+\end{kaartje}
+\begin{kaartje}{VVV lokaal}{bruin}
+    €60
+    \tcblower{}
+    \prijzenlijst{4}{20}{60}{180}{320}{450}
+    \toelichting{}
+    {\small Hypotheekwaarde €30}
+\end{kaartje}
+\begin{kaartje}{WGE lokaal}{bruin}
+    €60
+    \tcblower{}
+    \prijzenlijst{2}{10}{30}{90}{160}{250}
+    \toelichting{}
+    {\small Hypotheekwaarde €30}
+\end{kaartje}
+\begin{kaartje}{Fietsenrek}{gray}{\small}
+    €150
+    \tcblower{}
+    \includegraphics[height=9em]{fig/fiets.png}
+    \begin{tabular}{ll}
+        1 voorziening   & € $\epsdice{3} \times 4$\\
+        2 voorzieningen & € $\epsdice{3} \times 10$
+    \end{tabular}
+    \vspace{3pt} \\
+    \scheiding{}
+    {\small Hypotheekwaarde €75}
+\end{kaartje}
+\begin{kaartje}{Sanitair}{gray}{\small}
+    €150
+    \tcblower{}
+    \includegraphics[height=9em]{fig/toilet.png}
+    \begin{tabular}{ll}
+        1 voorziening   & € $\epsdice{3} \times 4$\\
+        2 voorzieningen & € $\epsdice{3} \times 10$
+    \end{tabular}
+    \vspace{3pt} \\
+    \scheiding{}
+    {\small Hypotheekwaarde €75}
+\end{kaartje}
+\begin{kaartje}{Kaa}{magenta}
+    €200
+    \tcblower{}
+    \includegraphics[height=7em]{fig/kaa.png}
+    \begin{tabular}{ll}
+        Kosten bij 1 leiding & €25  \\
+        Kosten bij 2 leiding & €50  \\
+        Kosten bij 3 leiding & €100 \\
+        Kosten bij 4 leiding & €200
+    \end{tabular}
+    \scheiding{}
+    {\small Hypotheekwaarde €100}
+\end{kaartje}
+\begin{kaartje}{Oe}{magenta}
+    €200
+    \tcblower{}
+    \includegraphics[height=7em]{fig/oe.png}
+    \begin{tabular}{ll}
+        Kosten bij 1 leiding & €25  \\
+        Kosten bij 2 leiding & €50  \\
+        Kosten bij 3 leiding & €100 \\
+        Kosten bij 4 leiding & €200
+    \end{tabular}
+    \scheiding{}
+    {\small Hypotheekwaarde €100}
+\end{kaartje}
+\begin{kaartje}{Hathi}{magenta}
+    €200
+    \tcblower{}
+    \includegraphics[height=7em]{fig/hathi.png}
+    \begin{tabular}{ll}
+        Kosten bij 1 leiding & €25  \\
+        Kosten bij 2 leiding & €50  \\
+        Kosten bij 3 leiding & €100 \\
+        Kosten bij 4 leiding & €200
+    \end{tabular}
+    \scheiding{}
+    {\small Hypotheekwaarde €100}
+\end{kaartje}
+\begin{kaartje}{Sahi}{magenta}
+    €200
+    \tcblower{}
+    \includegraphics[height=7em]{fig/sahi.png}
+    \begin{tabular}{ll}
+        Kosten bij 1 leiding & €25  \\
+        Kosten bij 2 leiding & €50  \\
+        Kosten bij 3 leiding & €100 \\
+        Kosten bij 4 leiding & €200
+    \end{tabular}
+    \scheiding{}
+    {\small Hypotheekwaarde €100}
+\end{kaartje}
+\end{tcbraster}
+\end{document}
